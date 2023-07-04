@@ -1,5 +1,5 @@
 // création de l'objet matrice
-function createMatrice(valeurs, a, b, nbA, nbB){
+export function createMatrice(valeurs, a, b, nbA, nbB){
     // a: les quantités disponibles dans les magasins de dépôt respectifs
     // b: les quantités demandées par les magasins de déstination respectifs
     // nbA: le nombre des magasins de dépot
@@ -22,7 +22,7 @@ function createMatrice(valeurs, a, b, nbA, nbB){
 }
 
 // génère la solution de base
-function generateBaseSolution(tabIndex, matrice, qteA, qteB, maxiOfTab){
+export function generateBaseSolution(tabIndex, matrice, qteA, qteB, maxiOfTab){
     let miniOfTab
     let indexOfMiniOfTab;
     let newValueOfMatrice; //evolution des valeurs dans la matrice
@@ -85,7 +85,7 @@ function generateBaseSolution(tabIndex, matrice, qteA, qteB, maxiOfTab){
     return baseSolution;
 }
 
-function calculateZ(solution, matriceOriginal){
+export function calculateZ(solution, matriceOriginal){
     const pSIndex = Object.keys(solution);
     const z = pSIndex.reduce((acc, el) => {
         return acc + parseInt(matriceOriginal[`${el}`])*parseInt(solution[`${el}`]);
@@ -93,8 +93,8 @@ function calculateZ(solution, matriceOriginal){
     return z;
 }
 
-module.exports = {
-    createMatrice,
-    generateBaseSolution,
-    calculateZ,
-}
+// module.exports = {
+//     createMatrice,
+//     generateBaseSolution,
+//     calculateZ,
+// }
