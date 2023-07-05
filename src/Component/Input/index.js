@@ -14,7 +14,7 @@ const InputNumber = (props) => {
         type="number" 
         onChange={handleChange}
         onKeyPress={(event) => {
-          if (event?.key === '-' || event?.key === '+' || event?.key === '.' || event?.key === ',' || event?.key === 'e') {
+          if (event.key === '-' || event.key === '+' || event.key === '.' || event.key === ',' || event.key === 'e') {
             event.preventDefault();
           }
         }} 

@@ -3,7 +3,7 @@ import { FormWrapper, Form, FormTitle,Form3Inputs, BtnContainer } from './Form.S
 import InputNumber from '../Input';
 import Button from '../Button';
 import { MinitabContext } from '../../Context/MinitabContext';
-import { createMatrice, generateBaseSolution, calculateZ } from '../../Helper/Algo/module';
+import { createMatrice, generateBaseSolution, calculateZ, generatePotentiels, deltaXY, generateOptimalSolution } from '../../Helper/Algo/module';
 
 
 const Form3 = () => {
@@ -45,8 +45,36 @@ const Form3 = () => {
         const cout = Object.fromEntries(data.entries());
         const s = generateSolution(Object.values(cout), minitabData.a, minitabData.b, minitabData.nbLigne, minitabData.nbColonne);
         const original = createMatrice(Object.values(cout), minitabData.a, minitabData.b, minitabData.nbLigne, minitabData.nbColonne);
+        let preOptimalSolution = s;
+        let optimal = false;
+        while(!optimal){
+            console.log(preOptimalSolution)
+            const potentiels = generatePotentiels(preOptimalSolution,original, minitabData.nbLigne, minitabData.nbColonne);
+        
+            // Calculer Delta(x,y) = Vx + C(x,y) - Vy pour les cases vides c-a-d les couts marginaux
+        
+            const deltas = deltaXY(preOptimalSolution, potentiels, original);
+        
+            // Tant qu'il existe Delta(x,y) < 0 => substitution de vecteur et refaire les étapes
+            let isNegativeExit = false;
+            deltas.forEach(delta=>{
+                if(Object.values(delta)[0]<0){
+                    isNegativeExit = true;
+                }
+            })
+            if(isNegativeExit){
+                preOptimalSolution = generateOptimalSolution(preOptimalSolution,deltas,original,minitabData.nbLigne,minitabData.nbColonne);
+            }else{
+                optimal=true;
+            }
+        }
+
+        const optimalSolution = preOptimalSolution;
+
         const zValue = calculateZ(s, original);
-        dispatch({type:'addCout', cout: Object.values(cout), bs: s, z: zValue});
+        const zValueOptimal = calculateZ(optimalSolution, original);
+        console.log("z optimal", zValueOptimal)
+        dispatch({type:'addCout', cout: Object.values(cout), bs: s, z: zValue, os: optimalSolution, zOptimal: zValueOptimal});
     }
 
     return (

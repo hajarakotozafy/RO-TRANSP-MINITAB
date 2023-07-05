@@ -21,6 +21,7 @@ const initialState = {
     baseSolution: null,
     zBase: 0,
     finalSolution: null,
+    zOptimal: 0,
 };
 
 const reducer = (state, action) => {
@@ -32,7 +33,7 @@ const reducer = (state, action) => {
       case 'addQte':
         return {...state, a: action.a, b: action.b, isQteValid: true, errorQte: action.errorQte};
       case 'addCout':
-        return {...state, cout: action.cout, isCoutValid: true, baseSolution: action.bs, zBase: action.z, isGifDisplayed: false};
+        return {...state, cout: action.cout, isCoutValid: true, baseSolution: action.bs, zBase: action.z, finalSolution: action.os, zOptimal: action.zOptimal, isGifDisplayed: false};
       case 'editLigneColonne':
         return {...state, nbLigne: 0, nbColonne: 0, a: null, b: null, isQteValid: false, isCoutValid: false, cout: null, baseSolution: null, finalSolution: null, zBase: 0}
       case 'editQte':

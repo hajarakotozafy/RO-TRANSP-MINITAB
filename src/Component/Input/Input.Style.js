@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Input = styled.input`
+    font-family: "Orbitron";
+    font-weight: 600;
     width: ${({theme})=>theme.size(4)}px;
     height: ${({theme})=>theme.size(4)}px;
     border-radius: ${({theme})=>theme.size(0.5)}px;
@@ -8,7 +10,7 @@ export const Input = styled.input`
     border: 1px solid ${({theme})=>theme.colors.blue1};
     background: ${({theme})=>theme.colors.white};
     color:  ${({theme})=>theme.colors.brandPrimary900};
-    font-size: ${({theme})=>theme.size(2)-2}px;
+    font-size: ${({theme})=>theme.size(2)-3}px;
     display: flex;
     justify-content: center;
     align-items: center;

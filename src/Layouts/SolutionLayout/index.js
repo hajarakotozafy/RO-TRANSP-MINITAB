@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { MinitabContext } from '../../Context/MinitabContext';
 import { Graph, GifContainer, SolutionLayoutTitle, SolutionLayoutContainer } from './SolutionLayout.Style';
 import BaseSGraph from '../../Component/Graph';
-
+import FinalSGraph from '../../Component/Graph/optimalGraph';
 const SolutionLayout = () => {
     const { minitabData, dispatch } = useContext(MinitabContext)
     return (
@@ -34,9 +34,9 @@ const SolutionLayout = () => {
                             <p className='solutions-p'>
                                 Voici la représentation graphique de la solution de base dont le coût total de transport est de :
                                 <br/>
-                                <span>Z = {'700'}</span>
+                                <span>Z = {minitabData.zOptimal}</span>
                             </p>
-                            <BaseSGraph/>
+                            <FinalSGraph/>
                         </div>
                     </SolutionLayoutContainer>
                 )}

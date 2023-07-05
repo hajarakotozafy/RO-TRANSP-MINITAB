@@ -5,7 +5,7 @@ import {MinitabContext} from '../../Context/MinitabContext';
 import 'reactflow/dist/style.css';
 
 
-function BaseSGraph() {
+function FinalSGraph() {
     const { minitabData, dispatch} = useContext(MinitabContext);
 
   let initialNodes = [];
@@ -70,14 +70,14 @@ function BaseSGraph() {
   }
 
   const initialEdges = [];
-  const nodes = Object.keys(minitabData.baseSolution);
+  const nodes = Object.keys(minitabData.finalSolution);
   for(let i = 0; i < nodes.length; i++){
     initialEdges.push(
       { 
         id: nodes[i],
         source: nodes[i].slice(0,2), 
         target: nodes[i].slice(2,4), 
-        label: minitabData.baseSolution[nodes[i]],
+        label: minitabData.finalSolution[nodes[i]],
         type: 'straight',
         labelBgRadius: '50%',
         labelBgColor: 'red',
@@ -99,5 +99,5 @@ function BaseSGraph() {
   );
 }
 
-export default BaseSGraph;
+export default FinalSGraph;
 
