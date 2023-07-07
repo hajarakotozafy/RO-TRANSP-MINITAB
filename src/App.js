@@ -8,6 +8,7 @@ import SolutionLayout from './Layouts/SolutionLayout';
 import { MinitabContext } from './Context/MinitabContext';
 
 const initialState = {
+    isLoading : true,
     isGettingStarted: false,
     isGifDisplayed: true,
     nbLigne: 0,

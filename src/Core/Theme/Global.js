@@ -10,7 +10,8 @@ const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         font-family: ${({theme})=>theme.fonts.main};
-        font-size: ${({theme})=>theme.size(2)-2}px;
+        font-size: ${({theme})=>theme.size(2)}px;
+        background: #ffffff;
     }
 
     *{
@@ -48,7 +49,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     ::-webkit-scrollbar {
-        width: 1px;
+        width: 0px;
       }
       
       ::-webkit-scrollbar-track{

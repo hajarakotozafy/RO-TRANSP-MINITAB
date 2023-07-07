@@ -6,17 +6,18 @@ export const Graph = styled.div`
   height: 100vh;
   position: relative;
   display: flex;
+  overflow-y: scroll;
   .solution-container{
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: ${({theme})=>theme.size(2)}px;
+    //   gap: ${({theme})=>theme.size(2)}px;
         // border: 3px solid red;
   }
 `
 
 export const GifContainer = styled.div`
-    z-index: 10;
+    z-index: 5;
     position: absolute;
     top: 0;
     right: 0; 
@@ -31,10 +32,13 @@ export const GifContainer = styled.div`
 `
 
 export const SolutionLayoutTitle = styled.div`
+    position: sticky;
+    top: 0;
     background: red;
     width: 100%;
+    z-index: 3;
     // height: ${({theme})=>theme.size(8)}px;
-    padding: ${({theme}) => theme.size(2)+1}px ${({theme})=>theme.size(1)}px;
+    padding: ${({theme}) => theme.size(2)+4}px ${({theme})=>theme.size(3)}px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,10 +49,13 @@ export const SolutionLayoutTitle = styled.div`
 
 export const SolutionLayoutContainer = styled.div`
   display: flex;
+  background: #ffffff;
+  flex: 1;
+  padding: ${({theme})=>theme.size(2)}px 0;
   .solutions{
       flex: 2;
     //   border: 1px solid green;
-      padding: 0 ${({theme})=>theme.size(3)}px;
+      padding:  ${({theme})=>theme.size(0)}px ${({theme})=>theme.size(3)}px;
       color: ${({theme})=>theme.colors.brandPrimary900};
       display: flex;
       flex-direction: column;
@@ -58,7 +65,7 @@ export const SolutionLayoutContainer = styled.div`
       gap: ${({theme})=>theme.size(1)}px;
       .solutions-title{
         width: 100%;
-        font-size: ${({theme}) => theme.size(2)}px;
+        font-size: ${({theme}) => theme.size(2)+2}px;
         font-weight: 600;
         // border: 1px solid yellow;
     }
@@ -67,7 +74,8 @@ export const SolutionLayoutContainer = styled.div`
         // flex: 1;
         // border: 1px solid red;
         span{
-            font-weight: 600;
+            font-weight: 500;
+            font-family: 'Orbitron';
         }
       }
   }

@@ -3,10 +3,13 @@ import { MinitabContext } from '../../Context/MinitabContext';
 import { Graph, GifContainer, SolutionLayoutTitle, SolutionLayoutContainer } from './SolutionLayout.Style';
 import BaseSGraph from '../../Component/Graph';
 import FinalSGraph from '../../Component/Graph/optimalGraph';
+import Loader from '../../Component/Loader';
+
 const SolutionLayout = () => {
     const { minitabData, dispatch } = useContext(MinitabContext)
     return (
         <Graph>
+            <Loader>{' '}</Loader>
             {minitabData.isGifDisplayed && (
                 <GifContainer/>
             )}
@@ -14,14 +17,15 @@ const SolutionLayout = () => {
                 <SolutionLayoutTitle>
                     <h3>Résultats</h3>
                 </SolutionLayoutTitle>
-                {minitabData.baseSolution && (
                     <SolutionLayoutContainer>
+                {minitabData.baseSolution ? (<>
                         <div className='solutions'>
                             <p className='solutions-title'>
                                 Solution de base
                             </p>
                             <p className='solutions-p'>
                                 Voici la représentation graphique de la solution de base dont le coût total de transport est de :
+                                <br/>
                                 <br/>
                                 <span> Z = {minitabData.zBase}</span>
                             </p>
@@ -34,12 +38,13 @@ const SolutionLayout = () => {
                             <p className='solutions-p'>
                                 Voici la représentation graphique de la solution de base dont le coût total de transport est de :
                                 <br/>
+                                <br/>
                                 <span>Z = {minitabData.zOptimal}</span>
                             </p>
                             <FinalSGraph/>
                         </div>
+                </>) : ' '}
                     </SolutionLayoutContainer>
-                )}
             </div>
         </Graph>
     )

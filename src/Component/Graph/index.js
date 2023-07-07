@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
-import ReactFlow, {EdgeLabelRenderer, Background} from 'reactflow';
+import ReactFlow, {EdgeLabelRenderer} from 'reactflow';
 import {MinitabContext} from '../../Context/MinitabContext';
 
 import 'reactflow/dist/style.css';
 
 
 function BaseSGraph() {
-    const { minitabData, dispatch} = useContext(MinitabContext);
+    const { minitabData} = useContext(MinitabContext);
 
   let initialNodes = [];
   let lettre = 'A';
@@ -19,7 +19,7 @@ function BaseSGraph() {
         type: 'input',
         sourcePosition: 'right',
         targetPosition: 'left', 
-        position: { x: 10, y: 10 + 60*(i-1) }, 
+        position: { x: 10, y: 24 + 80*(i-1) }, 
         data: {
           label: lettre,
         },
@@ -27,14 +27,19 @@ function BaseSGraph() {
             boxSizing: 'border-box',
             color: '#005162',
             fontSize: '14px',
-            borderRadius: '50%',
-            width: '40px',
-            height: '40px',
+            borderRadius: '24px',
+            width: '48px',
+            height: '48px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            background: '#E5EEF5',
-            border: '2px solid #00BCA9',
+            // background: '#E5EEF5',
+            // border: '1px solid #00BCA9',
+            background: '#ffffff',
+            border: 'none',
+            fontFamily: 'Orbitron',
+            fontWeight: '600', 
+            boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 10px 0 rgba(0, 0, 0, 0.08)'
         }
       }
     )
@@ -48,7 +53,7 @@ function BaseSGraph() {
         sourcePosition: 'right', 
         type: 'output', 
         targetPosition: 'left', 
-        position: { x: 260, y: 10 + 60*(i-1)}, 
+        position: { x: 260, y: 24 + 80*(i-1)}, 
         data: { 
           label: i
         },
@@ -56,14 +61,19 @@ function BaseSGraph() {
             boxSizing: 'border-box',
             color: '#005162',
             fontSize: '14px',
-            borderRadius: '50%',
-            width: '40px',
-            height: '40px',
+            borderRadius: '24px',
+            width: '48px',
+            height: '48px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            background: '#E5EEF5',
-            border: '2px solid #00BCA9',
+            // background: '#E5EEF5',
+            // border: '1px solid #00BCA9',
+            background: '#ffffff',
+            border: 'none',
+            fontFamily: 'Orbitron',
+            fontWeight: '600',
+            boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 10px 0 rgba(0, 0, 0, 0.08)',
         }
       },
     )
@@ -90,7 +100,7 @@ function BaseSGraph() {
     )
   }
   return (
-    <div className="graph" style={{width: '310px', height:'440px'}}>
+    <div className="graph" style={{width: '360px', height:'540px'}}>
       <ReactFlow nodes={initialNodes} edges = {initialEdges}>
       {/* <Background color="grey" variant='dots' /> */}
         <EdgeLabelRenderer/>

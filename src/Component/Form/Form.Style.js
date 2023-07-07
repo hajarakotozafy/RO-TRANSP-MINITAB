@@ -11,7 +11,7 @@ export const FormWrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: ${({theme}) => theme.size(2)}px ${({theme}) => theme.size(1)}px 0 ${({theme}) => theme.size(1)}px;
+    padding: ${({theme}) => theme.size(2)}px ${({theme}) => theme.size(2)}px 0 ${({theme}) => theme.size(2)}px;
     margin: 0;
     gap: 0;
     &:before{
@@ -55,7 +55,7 @@ export const Form = styled.form`
 
 export const FormTitle = styled.p`
     // border: 2px solid grey;
-    font-size: ${({theme}) => theme.size(2)}px;
+    font-size: ${({theme}) => theme.size(2)+2}px;
     font-weight: 600;
 `
 export const Form1Inputs = styled.div`
