@@ -74,8 +74,14 @@ export const SolutionLayoutContainer = styled.div`
         // flex: 1;
         // border: 1px solid red;
         span{
-            font-weight: 500;
-            font-family: 'Orbitron';
+            font-weight: 600;
+            // font-family: 'Orbitron';
+            // margin-top: 8px;
+            height: 24px;
+            border-radius: 4px;
+            background: ${({theme}) => theme.colors.vert};
+            padding: 4px 8px;
+            color: ${({theme}) => theme.colors.white};
         }
       }
   }

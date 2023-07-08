@@ -35,9 +35,12 @@ const Theme: DefaultTheme = {
         white: '#FFFFFF',
         grey: '#E5EEF5',
         orange: '#FF6346',
+        vert: '#03CEA4',
         blue1: '#00A9BE',
         blue2: '#00BCA9',
+        // gradient1: 'linear-gradient(to right, #006E77 , #006E77)',
         gradient1: 'linear-gradient(to right, #00A9BE , #00BCA9)',
+        //#48B372
     }
 }
 

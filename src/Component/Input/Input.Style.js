@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const Input = styled.input`
-    font-family: "Orbitron";
-    font-weight: 600;
-    width: ${({theme})=>theme.size(5)-4}px;
-    height: ${({theme})=>theme.size(5)-4}px;
+    // font-family: "Orbitron";
+    font-weight: 500;
+    width: ${({theme})=>theme.size(4)+4}px;
+    height: ${({theme})=>theme.size(4)+4}px;
     border-radius: ${({theme})=>theme.size(0.5)}px;
     outline: none;
-    border: 1px solid ${({theme})=>theme.colors.blue1};
+    border: 1px solid ${({theme})=>theme.colors.brandPrimary900};
     background: ${({theme})=>theme.colors.white};
-    color:  ${({theme})=>theme.colors.blue1};
-    font-size: ${({theme})=>theme.size(2)-3}px;
+    color:  ${({theme})=>theme.colors.brandPrimary900};
+    font-size: ${({theme})=>theme.size(2)-2}px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,8 @@ export const Input = styled.input`
         display: none;
     }
     &:disabled{
-        background: ${({theme})=>theme.colors.grey};
-        border: 1px solid ${({theme})=>theme.colors.grey};
+        background: ${({theme})=>theme.colors.grey};//grey
+        // color: ${({theme})=>theme.colors.white};//none
+        border: 1px solid ${({theme})=>theme.colors.grey};//grey
     }
 `

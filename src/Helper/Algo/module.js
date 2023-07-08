@@ -232,7 +232,9 @@ export const generateOptimalSolution = (baseSolution, deltas, matriceOriginal, n
             loopPath.pop();
         }
         if(loopPath.length == 0 || indexToCoordinates(currentIndex).j == indexToCoordinates(loopPath[`${loopPath.length-1}`]).j){
-            loopPath.push(currentIndex);
+            if(!trouve){
+                loopPath.push(currentIndex);
+            }
             let ligne = parcoursLigne(lignes[rowNumber], rowNumber);
             ligne = ligne.filter(id => id != currentIndex);
             if(ligne.length == 0 && !trouve){
@@ -243,7 +245,9 @@ export const generateOptimalSolution = (baseSolution, deltas, matriceOriginal, n
                             loopPath.pop();
                         }
                         if(indexToCoordinates(id).i == indexToCoordinates(loopPath[`${loopPath.length-1}`]).i){
-                            loopPath.push(id);
+                            if(!trouve){
+                                loopPath.push(id);
+                            }
                             let colonneId = indexToCoordinates(id).j;
                             if(colonneId != numCol){
                                 let colonne = parcoursColonne(lignes, colonneId);
@@ -268,7 +272,7 @@ export const generateOptimalSolution = (baseSolution, deltas, matriceOriginal, n
     searchPath(loopPath, numLigne, headIndex);
    console.log(loopPath);
     let loopMin = Infinity;
-    for(let i=1; i < loopPath.length; i++){
+    for(let i=1; i < loopPath.length; i=i+2){
         if(fullMatriceBase[loopPath[i]]<loopMin){
             loopMin = fullMatriceBase[loopPath[i]]
         }
@@ -289,10 +293,13 @@ export const generateOptimalSolution = (baseSolution, deltas, matriceOriginal, n
 
 
     for(let i = 0; i < cheminPrise.length; i++){
-        if(i%2==0){
-            fullMatriceBase[cheminPrise[i]] += substitueValue;
-        }else {
+        console.log(fullMatriceBase[cheminPrise[i]]);
+        if(i%2!=0){
             fullMatriceBase[cheminPrise[i]] -= substitueValue;
+            console.log(fullMatriceBase[cheminPrise[i]]);
+        }else {
+            fullMatriceBase[cheminPrise[i]] += substitueValue;
+            console.log(fullMatriceBase[cheminPrise[i]]);
         }
     }
     
