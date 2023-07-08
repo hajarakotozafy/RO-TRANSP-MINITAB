@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/RO-TRANSP-MINITAB/static/css/main.6dbfd432.css",
-    "main.js": "/RO-TRANSP-MINITAB/static/js/main.e8b46721.js",
+    "main.js": "/RO-TRANSP-MINITAB/static/js/main.59445964.js",
     "static/js/787.a00a4cfd.chunk.js": "/RO-TRANSP-MINITAB/static/js/787.a00a4cfd.chunk.js",
     "static/media/transp2.gif": "/RO-TRANSP-MINITAB/static/media/transp2.105c6094b4a3d3c49abb.gif",
     "static/media/plus-jakarta-sans-latin-500-normal.woff": "/RO-TRANSP-MINITAB/static/media/plus-jakarta-sans-latin-500-normal.74aa5110f96917e8d436.woff",
@@ -56,11 +56,11 @@
     "static/media/plus-jakarta-sans-cyrillic-ext-500-normal.woff2": "/RO-TRANSP-MINITAB/static/media/plus-jakarta-sans-cyrillic-ext-500-normal.4c601838f1a890416219.woff2",
     "index.html": "/RO-TRANSP-MINITAB/index.html",
     "main.6dbfd432.css.map": "/RO-TRANSP-MINITAB/static/css/main.6dbfd432.css.map",
-    "main.e8b46721.js.map": "/RO-TRANSP-MINITAB/static/js/main.e8b46721.js.map",
+    "main.59445964.js.map": "/RO-TRANSP-MINITAB/static/js/main.59445964.js.map",
     "787.a00a4cfd.chunk.js.map": "/RO-TRANSP-MINITAB/static/js/787.a00a4cfd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6dbfd432.css",
-    "static/js/main.e8b46721.js"
+    "static/js/main.59445964.js"
   ]
 }
