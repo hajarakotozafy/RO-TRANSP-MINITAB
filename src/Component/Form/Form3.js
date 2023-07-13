@@ -4,21 +4,21 @@ import InputNumber from '../Input';
 import Button from '../Button';
 import { MinitabContext } from '../../Context/MinitabContext';
 import { createMatrice, generateBaseSolution, calculateZ, generatePotentiels, deltaXY, generateOptimalSolution } from '../../Helper/Algo/module';
-
+import { Graph } from '../../Helper/Algo/Graph';
 
 const Form3 = () => {
     const { minitabData, dispatch } = useContext(MinitabContext);
     
     const generateSolution = (cout, a, b, nbLigne, nbColonne) => {
         let matrice = {};
-        let baseSolution = {};
+        // let baseSolution = {};
         let index = [];
         matrice = createMatrice(cout, a, b, nbLigne, nbColonne);
         let valeurs = Object.values(matrice);
         index = Object.keys(matrice);
         let max = Math.max(...valeurs) + 1;
         max = Infinity;
-        baseSolution = generateBaseSolution(index, matrice, a, b, max);
+        let baseSolution = generateBaseSolution(index, matrice, a, b, max);
         return baseSolution;
     }
     
@@ -43,10 +43,13 @@ const Form3 = () => {
         e.preventDefault();
         const data = new FormData(e.target);
         const cout = Object.fromEntries(data.entries());
-        const s = generateSolution(Object.values(cout), minitabData.a, minitabData.b, minitabData.nbLigne, minitabData.nbColonne);
-        const original = createMatrice(Object.values(cout), minitabData.a, minitabData.b, minitabData.nbLigne, minitabData.nbColonne);
-        let preOptimalSolution = s;
-        let optimal = false;
+        try{
+
+            const s = generateSolution(Object.values(cout), minitabData.a, minitabData.b, minitabData.nbLigne, minitabData.nbColonne);
+            const original = createMatrice(Object.values(cout), minitabData.a, minitabData.b, minitabData.nbLigne, minitabData.nbColonne);
+            const {baseSolution, casD} = s; 
+            let preOptimalSolution = baseSolution;
+            let optimal = false;
         while(!optimal){
             console.log(preOptimalSolution)
             const potentiels = generatePotentiels(preOptimalSolution,original, minitabData.nbLigne, minitabData.nbColonne);
@@ -64,17 +67,34 @@ const Form3 = () => {
             })
             if(isNegativeExit){
                 preOptimalSolution = generateOptimalSolution(preOptimalSolution,deltas,original,minitabData.nbLigne,minitabData.nbColonne);
+                console.log("neg")
+                const graph = new Graph();
+                Object.keys(preOptimalSolution).forEach(key => {
+                    graph.addEdge(key.slice(0,2), key.slice(2,4));
+                })
+                console.log('cas dégénéré?: ', graph.isConnected() ? 'non' : 'oui');
+                if(graph.isConnected()){
+                    console.log("hehe")
+                    continue
+                }else{
+                    console.log("optimal dégénéré")
+                    optimal = true;
+                }
             }else{
-                optimal=true;
+                    optimal=true;
             }
         }
 
         const optimalSolution = preOptimalSolution;
-
-        const zValue = calculateZ(s, original);
+        
+        const zValue = calculateZ(baseSolution, original);
         const zValueOptimal = calculateZ(optimalSolution, original);
         console.log("z optimal", zValueOptimal)
-        dispatch({type:'addCout', cout: Object.values(cout), bs: s, z: zValue, os: optimalSolution, zOptimal: zValueOptimal});
+        // dispatch({type:'addCout', cout: Object.values(cout), bs: s, z: zValue});
+        dispatch({type:'addCout', cout: Object.values(cout), bs: baseSolution, casD: casD, z: zValue, os: optimalSolution, zOptimal: zValueOptimal});
+        }catch(e){
+            console.error(e.message)
+        }
     }
 
     return (

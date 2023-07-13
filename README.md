@@ -1,5 +1,5 @@
 # Operational Research 
-## Minitab Method
+## Transportation Problem | Minitab Method
 An operational research school assignement project
 ![screenshot](./public/ro-capture.jpg)
 ## You want to test it?

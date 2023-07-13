@@ -1,6 +1,17 @@
 import Gif from '../../Assets/images/transp2.gif';
 import styled from 'styled-components';
 
+export const TagDeg = styled.span`
+    padding: 4px 8px;
+    color: white;
+    font-weight: 600;
+    // border: 2px solid red;
+    font-size: 12px;
+    border-radius: 16px;
+    margin-left: 8px;
+    background: red;
+`
+
 export const Graph = styled.div`
   flex: 1;
   height: 100vh;
@@ -17,18 +28,31 @@ export const Graph = styled.div`
 `
 
 export const GifContainer = styled.div`
-    z-index: 5;
+    z-index: 10;
     position: absolute;
     top: 0;
     right: 0; 
     flex: 1;
     width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F2F2F2;
     // border: 20px solid green;
-    background: url(${Gif});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    // background: url(${Gif});
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
+    div {
+        z-index: 11;
+        background: url(${Gif});
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        width: 400px;
+    }
 `
 
 export const SolutionLayoutTitle = styled.div`

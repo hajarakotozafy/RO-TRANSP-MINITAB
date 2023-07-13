@@ -87,7 +87,7 @@ function BaseSGraph() {
         id: nodes[i],
         source: nodes[i].slice(0,2), 
         target: nodes[i].slice(2,4), 
-        label: minitabData.baseSolution[nodes[i]],
+        // label: minitabData.baseSolution[nodes[i]],
         type: 'straight',
         labelBgRadius: '50%',
         labelBgColor: 'red',

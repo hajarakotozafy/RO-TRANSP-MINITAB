@@ -87,7 +87,7 @@ function FinalSGraph() {
         id: nodes[i],
         source: nodes[i].slice(0,2), 
         target: nodes[i].slice(2,4), 
-        label: minitabData.finalSolution[nodes[i]],
+        // label: minitabData.finalSolution[nodes[i]],
         type: 'straight',
         labelBgRadius: '50%',
         labelBgColor: 'red',
